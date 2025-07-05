@@ -34,7 +34,7 @@
 1. **Клонировать репозиторйй**
 
 ```bash
-git clone https://github.com/sp-va/ip-health-checker.git
+git clone https://github.com/sp-va/ipHealthCheck.git
 cd ip-health-checker
 ```
 
