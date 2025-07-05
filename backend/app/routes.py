@@ -29,7 +29,7 @@ async def insert_addresses_endpoint(addresses: t.List[HostAddressInput], db: Asy
 
 @router.delete("")
 async def hard_delete_address_endpoint(address: str, db: AsyncSession = Depends(db_session)):
-    return await hard_delete_address(address, db)
+    await hard_delete_address(address, db)
 
 
 @router.get("/ping_all")

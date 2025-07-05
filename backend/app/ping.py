@@ -9,7 +9,7 @@ from app.schemas import PingOutput
 
 def ping_ip(address: str):
     try:
-        output = (sp.check_output(["ping", "-n", "-c", "4", address])).decode()
+        output = (sp.check_output(["ping", "-n", "-c", "1", "-W", "1", address])).decode()
         packet_loss_percentage = re.search(
             r"(\d+)% packet loss",
             output

@@ -158,6 +158,7 @@ async function deleteAddress(address) {
       `http://localhost:8000/api/v1/addresses?address=${encodeURIComponent(address)}`,
       { method: 'DELETE' }
     )
+    if (response.ok) {await fetchData()}
     if (!response.ok) throw new Error('Ошибка при удалении')
     tableData.value = tableData.value.filter((item) => item.related_address !== address)
   } catch (err) {
