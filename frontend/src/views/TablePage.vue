@@ -106,7 +106,7 @@ async function submitAddresses() {
   }
 
   try {
-    const response = await fetch('https://sp-va-iphealthcheck-d583.twc1.net:8000/api/v1/addresses', {
+    const response = await fetch('/api/v1/addresses', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(validAddresses.map((value) => ({ value }))),
@@ -125,7 +125,7 @@ async function submitAddresses() {
 
 async function fetchData() {
   try {
-    const response = await fetch('https://sp-va-iphealthcheck-d583.twc1.net:8000/api/v1/addresses')
+    const response = await fetch('/api/v1/addresses')
     if (!response.ok) throw new Error('Ошибка загрузки данных')
     const data = await response.json()
     rawData.value = data
@@ -168,7 +168,7 @@ async function deleteAddress(address) {
 
 const downloadCsv = async () => {
   try {
-    const response = await fetch('https://sp-va-iphealthcheck-d583.twc1.net:8000/api/v1/addresses/statistics');
+    const response = await fetch('/api/v1/addresses/statistics');
 
     if (!response.ok) {throw new Error('Ошибка при получении CSV');}
     const blob = await response.blob();
@@ -204,7 +204,7 @@ function handleFileUpload(event) {
 
 async function uploadAddresses() {
   try {
-    const response = await fetch('https://sp-va-iphealthcheck-d583.twc1.net:8000/api/v1/addresses', {
+    const response = await fetch('/api/v1/addresses', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -227,7 +227,7 @@ async function uploadAddresses() {
 
 async function pingAllAddresses() {
   try {
-    const response = await fetch('https://sp-va-iphealthcheck-d583.twc1.net:8000/api/v1/addresses/ping_all')
+    const response = await fetch('/api/v1/addresses/ping_all')
     if (response.ok) {
       await fetchData()
     } else {
